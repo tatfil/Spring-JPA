@@ -3,7 +3,9 @@ package com.example.demo.model;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "event")
@@ -22,6 +24,9 @@ public class Event {
     private Date started;
     private Date ended;
     private String notes;
+
+    @ManyToMany(mappedBy = "eventSet")
+    private Set<Employee> employeeSet = new HashSet<>();
 
     public Event() {
     }
@@ -96,6 +101,14 @@ public class Event {
 
     public void setType(EventType type) {
         this.type = type;
+    }
+
+    public Set<Employee> getEmployeeSet() {
+        return employeeSet;
+    }
+
+    public void setEmployeeSet(Set<Employee> employeeSet) {
+        this.employeeSet = employeeSet;
     }
 
     @Override

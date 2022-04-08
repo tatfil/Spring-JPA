@@ -1,7 +1,9 @@
 package com.example.demo.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "employee")
@@ -13,6 +15,19 @@ public class Employee {
 
     @Column(name = "employee_name")
     private String name;
+
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "position_id")
+    private Position position;
+
+
+    @ManyToMany
+    @JoinTable(
+            name = "employee_course",
+            joinColumns = @JoinColumn(name = "employee_id"),
+            inverseJoinColumns = @JoinColumn(name = "event_id"))
+    private Set<Event> eventSet = new HashSet<>();
 
 
     public Employee() {
@@ -41,6 +56,14 @@ public class Employee {
 
     public void setName(String Name) {
         this.name = Name;
+    }
+
+    public Set<Event> getEventSet() {
+        return eventSet;
+    }
+
+    public void setEventSet(Set<Event> eventSet) {
+        this.eventSet = eventSet;
     }
 
     @Override

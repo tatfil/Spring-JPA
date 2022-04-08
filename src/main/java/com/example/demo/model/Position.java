@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "position")
@@ -12,6 +13,9 @@ public class Position {
     private String title;
     private String description;
     private Integer salaryRange;
+
+    @OneToMany(mappedBy="position")
+    private Set<Employee> employees;
 
     public Long getId() {
         return id;

@@ -45,7 +45,7 @@ public class EventEntityTest {
         LocalDate dateStart = LocalDate.of(2022,1,10);
         LocalDate dateEnd = LocalDate.of(2023,1,10);
 
-        Event event1 = new Event("ooo", EventType.TRAINING, Date.from(dateStart.atStartOfDay(ZoneId.systemDefault()).toInstant()),
+        Event event1 = new Event("Training", EventType.TRAINING, Date.from(dateStart.atStartOfDay(ZoneId.systemDefault()).toInstant()),
                 Date.from(dateEnd.atStartOfDay(ZoneId.systemDefault()).toInstant()));
         events.add(event1);
 
@@ -54,6 +54,8 @@ public class EventEntityTest {
 
         List<Event> eventsDB = getEventsFromTable();
         Assertions.assertArrayEquals(events.toArray(), eventsDB.toArray());
+
+        destroy();
     }
 
     private void persist(Event event) {
