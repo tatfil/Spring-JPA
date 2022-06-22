@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Objects;
@@ -30,6 +32,7 @@ public class Employee {
     private Set<Event> eventSet = new HashSet<>();
 
 
+    @Autowired
     public Employee() {
     }
 

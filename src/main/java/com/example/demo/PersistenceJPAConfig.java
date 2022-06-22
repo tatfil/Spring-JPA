@@ -1,15 +1,5 @@
 package com.example.demo;
 
-
-
-
-//@Configuration
-//@PropertySource("classpath:persistence.properties")
-//@ComponentScan("com.example.demo")
-////@ImportResource("classpath*:*springDataConfig.xml")
-//@EnableTransactionManagement
-//@EnableJpaRepositories(basePackages = "com.example.demo.dao")
-
 import com.google.common.base.Preconditions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;

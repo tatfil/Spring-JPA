@@ -5,13 +5,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.PropertySource;
 
 @SpringBootApplication
-@PropertySource("classpath:application.properties")
-public class DemoApplication {
+@PropertySource("classpath:application-h2.properties")
+public class SpringBootH2Application {
 
-	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
-		System.out.println("!!!");
-
-	}
-
+    public static void main(String... args) {
+        SpringApplication.run(SpringBootH2Application.class, args
+        );
+    }
 }
